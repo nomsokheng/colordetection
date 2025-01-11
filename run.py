@@ -62,9 +62,11 @@ class ColorReader (QWidget):
         layout.addWidget(self.stop_camera_button)
         layout.addWidget(self.image_label)
         self.setLayout(layout)
+        self.overlay_info = None
 
     # Function Upload Image by file Path
     def uploadImage(self):
+        self.image_label.clear()
         file_path, _ = QFileDialog.getOpenFileName(
             self, "Select an Image", "", "Image Files (*.png *.jpg *.jpeg *.bmp *.gif)"
         )
@@ -90,6 +92,7 @@ class ColorReader (QWidget):
             self.image_label.setPixmap(scaled_pixmap)
 
     def startCamera(self):
+        self.image_label.clear()
         self.capture = cv2.VideoCapture(0)
         if not self.capture.isOpened():
             print("Error: Unable to access camera.")
@@ -114,13 +117,20 @@ class ColorReader (QWidget):
     def updateFrame(self):
         ret, frame = self.capture.read()
         if ret:
+            # Draw overlay if available
+            if self.overlay_info:
+                cv2.rectangle(frame, (20, 20), (750, 60), self.overlay_info["color"], -1)
+                text = self.overlay_info["text"]
+                cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
+                if sum(self.overlay_info["color"]) >= 600:
+                    cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2, cv2.LINE_AA)
+
             self.image = frame
             height, width, channels = frame.shape
             bytes_per_line = channels * width
             q_image = QImage(frame.data, width, height, bytes_per_line, QImage.Format.Format_RGB888)
             pixmap = QPixmap.fromImage(q_image.rgbSwapped())
-            self.image_label.setPixmap(pixmap)
-            
+
             # Scale the pixmap to fit the label’s size, keeping aspect ratio
             scaled_pixmap = pixmap.scaled(
                 self.image_label.size(),
@@ -155,8 +165,6 @@ class ColorReader (QWidget):
             if 0 <= x < img_w and 0 <= y < img_h:
                 self.blue, self.green, self.red = self.image[y, x]
                 self.double_clicked = True
-                self.x_position = x
-                self.y_position = y
 
                 # Draw and display the color info
                 self.displayColorInfo()
@@ -172,6 +180,11 @@ class ColorReader (QWidget):
 
             if self.red + self.green + self.blue >= 600:
                 cv2.putText(self.image, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2, cv2.LINE_AA)
+
+            self.overlay_info = {
+                "color": (int(self.blue), int(self.green), int(self.red)),
+                "text": text
+            }
 
             write_file("./clicked_color.txt", text)
             self.displayImage()
