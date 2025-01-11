@@ -1,0 +1,46 @@
+White R=255 G=255 B=255
+White R=255 G=255 B=255
+White R=255 G=255 B=255
+White R=255 G=255 B=255
+White R=255 G=255 B=255
+Ruddy Pink R=117 G=80 B=64
+Radical Red R=62 G=47 B=37
+Sandy Brown R=108 G=77 B=63
+Bistre R=48 G=46 B=41
+Warm Black R=46 G=45 B=41
+Byzantium R=255 G=255 B=254
+Tufts Blue R=47 G=43 B=37
+Wood Brown R=249 G=242 B=219
+Maya Blue R=21 G=15 B=12
+White R=255 G=255 B=255
+White R=255 G=255 B=255
+White R=255 G=255 B=255
+Utah Crimson R=6 G=6 B=6
+Medium Taupe R=254 G=254 B=254
+White R=255 G=255 B=255
+Light Salmon R=255 G=236 B=46
+Yellow (Munsell) R=42 G=147 B=254
+Ebony R=155 G=69 B=34
+Myrtle R=39 G=42 B=49
+Plum (Traditional) R=51 G=236 B=57
+Neon Green R=254 G=40 B=38
+Turquoise R=239 G=239 B=239
+Tropical Rain Forest R=241 G=241 B=241
+Wenge R=255 G=233 B=34
+Zaffre R=42 G=148 B=255
+Sandy Brown R=169 G=167 B=168
+Ruby Red R=238 G=238 B=238
+Lavender Indigo R=242 G=242 B=242
+Sinopia R=254 G=237 B=45
+Spring Bud R=30 G=134 B=255
+Rose Quartz R=147 G=63 B=26
+Midnight Blue R=133 G=141 B=144
+Persian Orange R=106 G=250 B=93
+Ocean Boat Blue R=254 G=156 B=155
+Ginger R=255 G=14 B=8
+Zinnwaldite Brown R=50 G=241 B=39
+Rusty Red R=255 G=165 B=165
+Mint R=248 G=72 B=59
+Stil De Grain Yellow R=241 G=37 B=28
+Nadeshiko Pink R=65 G=241 B=55
+Wisteria R=254 G=164 B=163
