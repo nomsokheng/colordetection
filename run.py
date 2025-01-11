@@ -1,7 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QApplication
 
-from color_reader import ColorReader
+from app.color_reader import ColorReader
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
