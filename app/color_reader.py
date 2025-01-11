@@ -155,7 +155,7 @@ class ColorReader (QWidget):
         if self.double_clicked:
             cv2.rectangle(self.image, (20, 20), (750, 60), (int(self.blue), int(self.green), int(self.red)), -1)
 
-            text = get_color_name(self.red, self.green, self.blue) + f' R={self.red} G={self.green} B={self.blue}'
+            text = f'R={self.red} G={self.green} B={self.blue}'
             cv2.putText(self.image, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
 
             if self.red + self.green + self.blue >= 600:
